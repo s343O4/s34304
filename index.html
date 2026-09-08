@@ -37,7 +37,6 @@
             color: var(--text-primary);
             line-height: 1.75;
             -webkit-font-smoothing: antialiased;
-            /* ลวดลายพิกเซลเพิ่มมิติพื้นหลัง */
             background-image: 
                 radial-gradient(circle at 15% 15%, rgba(186, 230, 253, 0.4) 0%, transparent 40%),
                 radial-gradient(circle at 85% 85%, rgba(224, 242, 254, 0.6) 0%, transparent 40%),
@@ -79,7 +78,6 @@
             overflow: hidden;
         }
 
-        /* ของตกแต่งวงกลมสไตล์เรขาคณิตบนส่วนหัว */
         .header-bg-banner::before, .header-bg-banner::after {
             content: "";
             position: absolute;
@@ -144,7 +142,7 @@
             margin-bottom: 20px;
         }
 
-        /* Quick Stat Highlights - การ์ดสถิติเล็กๆ เพิ่มความแน่น */
+        /* Quick Stat Highlights */
         .quick-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -189,9 +187,7 @@
             box-shadow: var(--shadow-hover);
         }
 
-        /* Hierarchy Headings - ลำดับความใหญ่ของหัวข้อ */
-        
-        /* 1. หัวข้อประวัติส่วนตัว (ใหญ่ที่สุด) */
+        /* Hierarchy Headings */
         h2.main-title-large {
             font-size: 1.7rem;
             font-weight: 700;
@@ -210,7 +206,6 @@
             color: var(--primary-blue);
         }
 
-        /* 2. หัวข้อใหญ่รองลงมา (ความสนใจ / ประวัติการศึกษา) */
         h2.section-title-medium {
             font-size: 1.4rem;
             font-weight: 600;
@@ -230,7 +225,6 @@
             border-radius: 3px;
         }
 
-        /* 3. หัวข้อมาตรฐานทั่วไป */
         h2.section-title {
             font-size: 1.25rem;
             font-weight: 600;
@@ -256,7 +250,7 @@
             line-height: 1.8;
         }
 
-        /* Profile Details Grid - ตกแต่งแบบการ์ด */
+        /* Profile Details Grid */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -293,7 +287,6 @@
             color: var(--text-primary);
         }
 
-        /* Highlight Card Decor (ความสนใจ) */
         .interest-card-box {
             background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
             padding: 22px;
@@ -302,7 +295,6 @@
             box-shadow: inset 0 0 10px rgba(2, 132, 199, 0.03);
         }
 
-        /* Timeline Card */
         .timeline-card {
             background-color: #ffffff;
             padding: 22px;
@@ -347,7 +339,6 @@
             font-weight: 600;
         }
 
-        /* Certificate Layout */
         .cert-container {
             display: flex;
             flex-direction: column;
@@ -414,7 +405,6 @@
             margin-bottom: 6px;
         }
 
-        /* Goal Banner Decor */
         .goal-banner {
             background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
             color: #ffffff;
@@ -446,7 +436,6 @@
             font-size: 0.98rem;
         }
 
-        /* Skills Chip Wrappers - ย้ายไปล่างสุด */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
@@ -476,7 +465,6 @@
             border-color: transparent;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 25px 0 10px 0;
@@ -484,7 +472,6 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive Design */
         @media (max-width: 600px) {
             .container { padding: 15px 12px; }
             header, section { padding: 20px; }
@@ -503,7 +490,6 @@
         <header>
             <div class="header-bg-banner"></div>
             <div class="profile-wrapper">
-                <!-- รูปโปรไฟล์ของคุณสตางค์ -->
                 <img src="images/images.jpg" alt="นายปิยพัทธ์ ลีลาทนาพร" class="profile-img">
             </div>
             <div class="header-content">
@@ -512,10 +498,10 @@
                     <span>🧪</span> แผนการเรียน วิทย์-คณิต (MSEP)
                 </div>
 
-                <!-- การ์ดสถิติเล็กๆ ตกแต่งส่วนหัวไม่ให้โล่ง -->
+                <!-- การ์ดสถิติเล็กๆ ปรับแก้เป็น ม.6/3 -->
                 <div class="quick-stats">
                     <div class="stat-card">
-                        <div class="stat-number">ม.6</div>
+                        <div class="stat-number">ม.6/3</div>
                         <div class="stat-label">ระดับชั้นปัจจุบัน</div>
                     </div>
                     <div class="stat-card">
@@ -538,7 +524,7 @@
             </p>
         </section>
 
-        <!-- 2. ประวัติส่วนตัว (หัวข้อใหญ่สุด - เอาชื่อเล่นออกแล้ว) -->
+        <!-- 2. ประวัติส่วนตัว (ปรับแก้เป็น ม.6/3) -->
         <section>
             <h2 class="main-title-large">ประวัติส่วนตัว</h2>
             <div class="info-grid">
@@ -552,12 +538,12 @@
                 </div>
                 <div class="info-card">
                     <label>สถานะการศึกษา</label>
-                    <span>มัธยมศึกษาปีที่ 6</span>
+                    <span>มัธยมศึกษาปีที่ 6/3</span>
                 </div>
             </div>
         </section>
 
-        <!-- 3. ความสนใจ (หัวข้อใหญ่รองลงมา) -->
+        <!-- 3. ความสนใจ -->
         <section>
             <h2 class="section-title-medium">ความสนใจ</h2>
             <div class="interest-card-box">
@@ -567,7 +553,7 @@
             </div>
         </section>
 
-        <!-- 4. ประวัติการศึกษา (หัวข้อใหญ่รองลงมา) -->
+        <!-- 4. ประวัติการศึกษา -->
         <section>
             <h2 class="section-title-medium">ประวัติการศึกษา</h2>
             <div class="timeline-card">
@@ -582,7 +568,6 @@
             <h2 class="section-title">เกียรติบัตร & ประกาศนียบัตร</h2>
             <div class="cert-container">
                 <div class="cert-img-box">
-                    <!-- รูปเกียรติบัตร Chula MOOC -->
                     <img src="images/chula.jpg" alt="เกียรติบัตร Chula MOOC - เปิดโลกเคมี: สารประกอบอินทรีย์และพอลิเมอร์">
                 </div>
                 <div class="cert-details">
@@ -612,7 +597,7 @@
             </div>
         </section>
 
-        <!-- 7. ความสามารถพิเศษ (ย้ายมาอยู่ล่างสุดตามสั่ง) -->
+        <!-- 7. ความสามารถพิเศษ -->
         <section>
             <h2 class="section-title">ความสามารถพิเศษ</h2>
             <div class="skills-grid">
