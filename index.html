@@ -3,22 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>นายปิยพัทธ์ ลีลาทนาพร | Home</title>
-    <!-- โหลด ฟอนต์ Prompt จาก Google Fonts -->
+    <title>นายปิยพัทธ์ ลีลาทนาพร | Aspirant Pharmacist</title>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Modern Glassmorphism Theme */
         :root {
-            --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #f3e8ff 50%, #fce7f3 100%);
-            --card-bg: rgba(255, 255, 255, 0.85);
-            --card-border: rgba(255, 255, 255, 0.9);
-            --text-main: #374151;
-            --text-sub: #6b7280;
-            --purple-dark: #6d28d9;
-            --purple-primary: #8b5cf6;
-            --purple-light: #f3e8ff;
-            --shadow-soft: 0 20px 40px rgba(139, 92, 246, 0.15);
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+            --card-bg: rgba(255, 255, 255, 0.92);
+            --purple-dark: #5b21b6;
+            --purple-primary: #7c3aed;
+            --cyan-accent: #06b6d4;
+            --emerald-accent: #10b981;
+            --shadow-glow: 0 20px 50px rgba(124, 58, 237, 0.35);
             --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
@@ -35,6 +31,248 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px;
+            color: #1e293b;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Particles Background Chemistry Icons */
+        .chem-particle {
+            position: absolute;
+            font-size: 1.8rem;
+            opacity: 0.25;
+            user-select: none;
+            pointer-events: none;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(15deg); }
+        }
+
+        /* Hero Card */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 36px;
+            box-shadow: var(--shadow-glow);
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            padding: 40px 32px;
+            transition: var(--transition);
+            position: relative;
+            z-index: 10;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 30px 60px rgba(6, 182, 212, 0.3);
+        }
+
+        .time-greeting {
+            font-size: 0.85rem;
+            color: var(--purple-primary);
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Profile Ring with Animated Molecule Border */
+        .profile-wrapper {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px auto;
+        }
+
+        .profile-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #06b6d4, #7c3aed, #10b981);
+            animation: rotateGrad 4s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes rotateGrad {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .profile-wrapper img {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffffff;
+        }
+
+        h1 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: var(--purple-dark);
+            margin-bottom: 6px;
+        }
+
+        .pharmacy-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #ddd6fe 100%);
+            color: var(--purple-dark);
+            padding: 5px 18px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid #c4b5fd;
+        }
+
+        p.bio {
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* Chemistry Stats Indicator */
+        .chem-stats {
+            display: flex;
+            justify-content: space-around;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 12px;
+            margin-bottom: 28px;
+        }
+
+        .stat-item h4 {
+            font-size: 1.1rem;
+            color: var(--cyan-accent);
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 0.78rem;
+            color: #64748b;
+        }
+
+        /* Action Button */
+        .btn-portfolio {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background: linear-gradient(135deg, #06b6d4 0%, #7c3aed 100%);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 28px;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.35);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-portfolio::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(45deg) translateY(-100%);
+            transition: 0.6s;
+        }
+
+        .btn-portfolio:hover::after {
+            transform: rotate(45deg) translateY(100%);
+        }
+
+        .btn-portfolio:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(6, 182, 212, 0.45);
+        }
+
+        footer {
+            margin-top: 22px;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Background Particles -->
+    <div class="chem-particle" style="top: 10%; left: 8%; animation-delay: 0s;">🧪</div>
+    <div class="chem-particle" style="top: 75%; left: 12%; animation-delay: 2s;">💊</div>
+    <div class="chem-particle" style="top: 20%; right: 10%; animation-delay: 1s;">🧬</div>
+    <div class="chem-particle" style="top: 80%; right: 8%; animation-delay: 3s;">🔬</div>
+
+    <div class="card">
+        <div class="time-greeting" id="greeting">ยินดีต้อนรับสู่อนาคตเภสัชกร</div>
+        
+        <div class="profile-wrapper">
+            <img src="images/images.jpg" alt="นายปิยพัทธ์ ลีลาทนาพร">
+        </div>
+
+        <h1>นายปิยพัทธ์ ลีลาทนาพร</h1>
+        <div class="pharmacy-badge">
+            <span>💊</span> มุ่งสู่ คณะเภสัชศาสตร์ มหิดล
+        </div>
+
+        <p class="bio">
+            "เพราะยาทุกเม็ดและสารเคมีทุกตัวคือศิลปะการรักษาชีวิต" <br>
+            ผู้หลงใหลในกลไกทางเคมีและชีววิทยา พร้อมพัฒนาตนเองอย่างไม่หยุดยั้ง
+        </p>
+
+        <div class="chem-stats">
+            <div class="stat-item">
+                <h4>วิทย์-คณิต</h4>
+                <p>MSEP ม.6/3</p>
+            </div>
+            <div class="stat-item">
+                <h4>Chula MOOC</h4>
+                <p>อบรมเคมีอินทรีย์</p>
+            </div>
+            <div class="stat-item">
+                <h4>100%</h4>
+                <p>ความมุ่งมั่นเป้าหมาย</p>
+            </div>
+        </div>
+
+        <a href="portfolio.html" class="btn-portfolio">
+            🧪 สำรวจแฟ้มสะสมผลงาน (Portfolio) ➔
+        </a>
+
+        <footer>
+            &copy; Piyapat Leelathanaporn | Future Pharmacist
+        </footer>
+    </div>
+
+    <script>
+        // เปลี่ยนคำต้อนรับตามเวลาอัตโนมัติ
+        const hour = new Date().getHours();
+        const greetingEl = document.getElementById('greeting');
+        if (hour < 12) greetingEl.textContent = "☀️ อรุณสวัสดิ์ | Welcome to my Pharmacy Portfolio";
+        else if (hour < 18) greetingEl.textContent = "🌤️ สวัสดีตอนบ่าย | Aspirant Pharmacist";
+        else greetingEl.textContent = "🌙 สายัณห์สวัสดิ์ | Future Pharmacist Journey";
+    </script>
+</body>
+</html>            justify-content: center;
             padding: 20px;
             color: var(--text-main);
             background-attachment: fixed;
