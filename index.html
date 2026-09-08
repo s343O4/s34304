@@ -8,13 +8,11 @@
     
     <style>
         :root {
-            /* ธีมสีฟ้าอ่อน Sky Blue / Soft Pastel */
             --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #f0f9ff 100%);
             --card-bg: rgba(255, 255, 255, 0.92);
             --blue-dark: #0369a1;
             --blue-primary: #0284c7;
             --blue-light: #e0f2fe;
-            --cyan-accent: #06b6d4;
             --shadow-soft: 0 20px 45px rgba(2, 132, 199, 0.18);
             --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
@@ -39,7 +37,6 @@
             background-attachment: fixed;
         }
 
-        /* Floating Chemistry Particles */
         .chem-particle {
             position: absolute;
             font-size: 1.8rem;
@@ -54,7 +51,6 @@
             50% { transform: translateY(-25px) rotate(15deg); }
         }
 
-        /* Hero Card */
         .card {
             background: var(--card-bg);
             backdrop-filter: blur(16px);
@@ -80,12 +76,11 @@
             font-size: 0.85rem;
             color: var(--blue-primary);
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* Profile Ring */
         .profile-wrapper {
             position: relative;
             width: 150px;
@@ -146,29 +141,29 @@
             margin-bottom: 25px;
         }
 
-        /* Chemistry Stats */
         .chem-stats {
             display: flex;
             justify-content: space-around;
             background: #f0f9ff;
             border: 1px solid #e0f2fe;
             border-radius: 20px;
-            padding: 12px;
+            padding: 14px 10px;
             margin-bottom: 28px;
         }
 
         .stat-item h4 {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             color: var(--blue-primary);
-            font-weight: 700;
+            font-weight: 600;
+            margin-bottom: 2px;
         }
 
         .stat-item p {
-            font-size: 0.78rem;
-            color: #64748b;
+            font-size: 0.9rem;
+            color: var(--blue-dark);
+            font-weight: 700;
         }
 
-        /* Action Button */
         .btn-portfolio {
             display: inline-flex;
             align-items: center;
@@ -184,8 +179,6 @@
             font-weight: 600;
             box-shadow: 0 10px 25px rgba(2, 132, 199, 0.3);
             transition: var(--transition);
-            position: relative;
-            overflow: hidden;
         }
 
         .btn-portfolio:hover {
@@ -203,7 +196,6 @@
 </head>
 <body>
 
-    <!-- Floating Background Particles -->
     <div class="chem-particle" style="top: 10%; left: 8%; animation-delay: 0s;">🧪</div>
     <div class="chem-particle" style="top: 75%; left: 12%; animation-delay: 2s;">💊</div>
     <div class="chem-particle" style="top: 20%; right: 10%; animation-delay: 1s;">🧬</div>
@@ -218,7 +210,7 @@
 
         <h1>นายปิยพัทธ์ ลีลาทนาพร</h1>
         <div class="pharmacy-badge">
-            <span>💊</span> มุ่งสู่ คณะเภสัชศาสตร์ มหิดล
+            <span>💊</span> มุ่งสู่ คณะเภสัชศาสตร์ มหาวิทยาลัยมหิดล
         </div>
 
         <p class="bio">
@@ -228,16 +220,12 @@
 
         <div class="chem-stats">
             <div class="stat-item">
-                <h4>วิทย์-คณิต</h4>
-                <p>MSEP ม.6/3</p>
+                <h4>แผนการเรียน</h4>
+                <p><strong>วิทย์-คณิต (MSEP) </strong></p>
             </div>
             <div class="stat-item">
-                <h4>Chula MOOC</h4>
-                <p>อบรมเคมีอินทรีย์</p>
-            </div>
-            <div class="stat-item">
-                <h4>100%</h4>
-                <p>ความมุ่งมั่นเป้าหมาย</p>
+                <h4>การอบรมทางวิชาการ</h4>
+                <p><strong>Chula MOOC เคมีอินทรีย์</strong></p>
             </div>
         </div>
 
@@ -253,7 +241,7 @@
     <script>
         const hour = new Date().getHours();
         const greetingEl = document.getElementById('greeting');
-        if (hour < 12) greetingEl.textContent = "☀️ อรุณสวัสดิ์ | Welcome to my Pharmacy Portfolio";
+        if (hour < 12) greetingEl.textContent = "Welcome to my Pharmacy Portfolio";
         else if (hour < 18) greetingEl.textContent = "🌤️ สวัสดีตอนบ่าย | Aspirant Pharmacist";
         else greetingEl.textContent = "🌙 สายัณห์สวัสดิ์ | Future Pharmacist Journey";
     </script>
