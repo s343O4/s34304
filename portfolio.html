@@ -8,7 +8,6 @@
     
     <style>
         :root {
-            /* ธีมสีฟ้าอ่อน Soft Blue / Sky Pastel */
             --bg-color: #f0f9ff;
             --card-bg: rgba(255, 255, 255, 0.94);
             --text-dark: #0f172a;
@@ -112,39 +111,45 @@
             padding: 20px;
         }
 
+        /* แก้ไขปัญหาขอบรูปโดนตัดทับตรงนี้ */
         header {
             background: #ffffff;
             border-radius: 28px;
             text-align: center;
             box-shadow: var(--shadow);
             margin-bottom: 25px;
-            overflow: hidden;
             border: 1px solid #e0f2fe;
+            position: relative;
+            /* เอา overflow: hidden ออก */
         }
 
         .header-banner {
             height: 140px;
             background: var(--gradient-header);
             position: relative;
+            border-radius: 28px 28px 0 0;
         }
 
         .profile-wrapper {
-            margin-top: -70px;
+            position: relative;
+            margin-top: -65px;
             display: inline-block;
+            z-index: 10;
         }
 
         header img.profile-img {
-            width: 140px;
-            height: 140px;
+            width: 135px;
+            height: 135px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid #ffffff;
-            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.2);
+            border: 4px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.25);
             transition: var(--transition);
             cursor: pointer;
+            background: #ffffff;
         }
 
-        header img.profile-img:hover { transform: scale(1.08) rotate(3deg); }
+        header img.profile-img:hover { transform: scale(1.06) rotate(3deg); }
 
         .header-content { padding: 15px 30px 30px 30px; }
 
@@ -202,7 +207,6 @@
             border-radius: 3px;
         }
 
-        /* 🧪 Interactive Lab Mini Simulator */
         .lab-simulator {
             background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
             color: #ffffff;
@@ -236,7 +240,6 @@
 
         .lab-btn:hover { background: var(--blue-light); }
 
-        /* Skill & Subject Bars */
         .skill-bar-container { margin-bottom: 15px; }
 
         .skill-info {
@@ -262,7 +265,6 @@
             transition: width 1.2s ease-in-out;
         }
 
-        /* Cert Box */
         .cert-container {
             background: #ffffff;
             border-radius: 18px;
@@ -281,7 +283,6 @@
 
         .cert-details { padding: 20px; background: #f0f9ff; }
 
-        /* Goal Banner */
         .goal-banner {
             background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
             color: #ffffff;
@@ -351,7 +352,7 @@
         <section>
             <h2 class="section-title">คำนำ (Introduction)</h2>
             <p style="color: var(--text-muted);">
-                แฟ้มสะสมผลงานฉบับนี้จัดทำขึ้นเพื่อนำเสนอประวัติ ความรู้ ความสามารถ และความมุ่งมั่นอันแรงกล้าของข้าพเจ้าในการเข้าศึกษาต่อใน **คณะเภสัชศาสตร์ มหาวิทยาลัยมหิดล** เพื่อต่อยอดความชอบในวิชาเคมีและชีววิทยาไปสู่การพัฒนาเภสัชภัณฑ์และยารักษาโรคในอนาคต
+                แฟ้มสะสมผลงานฉบับนี้จัดทำขึ้นเพื่อนำเสนอประวัติ ความรู้ ความสามารถ และความมุ่งมั่นอันแรงกล้าของข้าพเจ้าในการเข้าศึกษาต่อใน <strong>คณะเภสัชศาสตร์ มหาวิทยาลัยมหิดล</strong> เพื่อต่อยอดความชอบในวิชาเคมีและชีววิทยาไปสู่การพัฒนาเภสัชภัณฑ์และยารักษาโรคในอนาคต
             </p>
         </section>
 
@@ -427,7 +428,6 @@
     <button id="scrollTopBtn">↑</button>
 
     <script>
-        // Reading Progress
         window.onscroll = function() {
             let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -443,7 +443,6 @@
             window.scrollTo({top: 0, behavior: 'smooth'});
         };
 
-        // 🧪 Interactive Lab Reaction Simulator Function
         const reactions = [
             { icon: "🔵", text: "ปฏิกิริยาสังเคราะห์ยาสำเร็จ! ได้สารละลายบริสุทธิ์" },
             { icon: "🔮", text: "เกิดการเร่งปฏิกิริยาโดยเอนไซม์ (Enzymatic Reaction)" },
