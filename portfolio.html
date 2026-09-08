@@ -17,9 +17,6 @@
             --purple-primary: #8b5cf6;
             --purple-dark: #6d28d9;
             --purple-light: #f3e8ff;
-            --blue-accent: #0284c7;
-            --blue-light: #e0f2fe;
-            --blue-border: #bae6fd;
             --gradient-header: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
             --border-color: #e2e8f0;
             --shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
@@ -158,25 +155,6 @@
             overflow: hidden;
         }
 
-        .header-bg-banner::before, .header-bg-banner::after {
-            content: "";
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.18);
-        }
-        .header-bg-banner::before {
-            width: 180px;
-            height: 180px;
-            top: -40px;
-            left: -30px;
-        }
-        .header-bg-banner::after {
-            width: 120px;
-            height: 120px;
-            bottom: -50px;
-            right: 10%;
-        }
-
         .profile-wrapper {
             position: relative;
             margin-top: -65px;
@@ -223,7 +201,6 @@
             margin-bottom: 20px;
         }
 
-        /* Quick Stat Highlights */
         .quick-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -267,16 +244,6 @@
             transition: var(--transition);
             position: relative;
             scroll-margin-top: 90px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         section:hover {
@@ -284,7 +251,6 @@
             box-shadow: var(--shadow-hover);
         }
 
-        /* Hierarchy Headings */
         h2.main-title-large {
             font-size: 1.7rem;
             font-weight: 700;
@@ -347,7 +313,6 @@
             line-height: 1.8;
         }
 
-        /* Profile Details Grid */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -552,8 +517,6 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            cursor: pointer;
-            user-select: none;
         }
 
         .skill-tag:hover {
@@ -562,10 +525,6 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(139, 92, 246, 0.25);
             border-color: transparent;
-        }
-
-        .skill-tag:active {
-            transform: scale(0.95);
         }
 
         #scrollTopBtn {
@@ -595,11 +554,6 @@
             visibility: visible;
         }
 
-        #scrollTopBtn:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
-        }
-
         footer {
             text-align: center;
             padding: 25px 0 10px 0;
@@ -608,31 +562,19 @@
         }
 
         @media (max-width: 680px) {
-            .navbar {
-                padding: 8px 16px;
-            }
-            .navbar-logo {
-                font-size: 1rem;
-            }
-            .navbar-menu {
-                gap: 4px;
-            }
-            .navbar-menu a {
-                font-size: 0.78rem;
-                padding: 4px 6px;
-            }
+            .navbar { padding: 8px 16px; }
+            .navbar-logo { font-size: 1rem; }
+            .navbar-menu { gap: 4px; }
+            .navbar-menu a { font-size: 0.78rem; padding: 4px 6px; }
             .container { padding: 15px 12px; }
             header, section { padding: 20px; }
             header h1 { font-size: 1.6rem; }
-            h2.main-title-large { font-size: 1.4rem; }
-            h2.section-title-medium { font-size: 1.2rem; }
             .quick-stats { grid-template-columns: 1fr; gap: 8px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- แถบความคืบหน้าการอ่านด้านบน -->
     <div id="progress-bar"></div>
 
     <!-- Floating Navbar -->
@@ -640,7 +582,7 @@
         <nav class="navbar">
             <a href="portfolio.html" class="navbar-logo">Portfolio<span>💙</span></a>
             <ul class="navbar-menu">
-                <!-- กดแล้วกลับหน้า index.html -->
+                <!-- กดปุ่ม Home แล้วจะย้อนกลับไปหน้า index.html -->
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#about" class="active">เกี่ยวกับฉัน</a></li>
                 <li><a href="#education">การศึกษา</a></li>
@@ -781,7 +723,6 @@
     <button id="scrollTopBtn" title="กลับขึ้นด้านบน">↑</button>
 
     <script>
-        // ควบคุมแถบ Reading Progress และ ปุ่ม Scroll-to-Top
         window.onscroll = function() {
             let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -796,7 +737,6 @@
             }
         };
 
-        // เมื่อกดปุ่มกลับขึ้นด้านบน
         document.getElementById("scrollTopBtn").onclick = function() {
             window.scrollTo({top: 0, behavior: 'smooth'});
         };
