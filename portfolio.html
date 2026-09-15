@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ผลงานและเกียรติบัตร - Piyapat Portfolio</title>
+    <title>ผลงาน - Piyapat Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root { --bg: #f8fafc; --primary: #6366f1; --text-main: #0f172a; --text-sub: #64748b; }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Kanit', sans-serif; }
         body { background-color: var(--bg); color: var(--text-main); min-height: 100vh; padding-top: 100px; }
 
-        /* Navigation Bar (เหลือ 3 เมนูหลัก) */
         nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px);
@@ -22,14 +21,11 @@
 
         .container { max-width: 900px; margin: 0 auto 60px; padding: 0 20px; }
         
-        /* Main Heading */
         .page-title { text-align: center; font-size: 2.2rem; color: var(--text-main); margin-bottom: 10px; }
         .page-subtitle { text-align: center; color: var(--text-sub); font-size: 1rem; margin-bottom: 40px; font-weight: 300; }
 
-        /* Section Title Style */
         .section-title { font-size: 1.5rem; color: var(--text-main); margin: 40px 0 20px; display: flex; align-items: center; gap: 10px; }
 
-        /* Portfolio Card Style */
         .card {
             background: white; border-radius: 20px; overflow: hidden;
             border: 1px solid #f1f5f9; box-shadow: 0 10px 20px rgba(0,0,0,0.02);
@@ -45,18 +41,6 @@
         .card-body h3 { font-size: 1.25rem; margin: 10px 0; color: var(--text-main); }
         .card-body p { font-size: 0.95rem; color: var(--text-sub); font-weight: 300; line-height: 1.6; }
 
-        /* Certificate Grid Style */
-        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .cert-card {
-            background: white; border-radius: 16px; padding: 18px;
-            border: 1px solid #f1f5f9; box-shadow: 0 10px 20px rgba(0,0,0,0.02);
-            transition: all 0.3s ease; text-align: center;
-        }
-        .cert-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.06); }
-        .cert-card img { width: 100%; border-radius: 10px; margin-bottom: 12px; border: 1px solid #f1f5f9; }
-        .cert-card h3 { font-size: 1.05rem; color: var(--text-main); font-weight: 500; margin-bottom: 5px; }
-        .cert-card p { font-size: 0.85rem; color: var(--text-sub); }
-
         @media (max-width: 650px) { .card { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -65,17 +49,17 @@
     <nav>
         <a href="index.html">หน้าแรก</a>
         <a href="about.html">เกี่ยวกับฉัน</a>
-        <a href="portfolio.html" class="active">ผลงานและเกียรติบัตร</a>
+        <a href="portfolio.html" class="active">ผลงาน</a>
     </nav>
 
     <div class="container">
-        <h1 class="page-title">ผลงาน & เกียรติบัตร</h1>
-        <p class="page-subtitle">รวบรวมผลงานการเรียนรู้ กิจกรรม และความสำเร็จที่ผ่านมา</p>
+        <h1 class="page-title">ผลงานและการเรียนรู้</h1>
+        <p class="page-subtitle">รวบรวมผลงานการเรียนรู้ กิจกรรม และโครงการที่ได้เข้าร่วม</p>
 
-        <!-- ส่วนที่ 1: ผลงานการเรียนรู้ (Portfolio Section) -->
         <h2 class="section-title">📂 ผลงานและการเรียนรู้</h2>
         <div class="card">
             <div class="img-box">
+                <!-- เชื่อมรูปเกียรติบัตร/ผลงาน chula.jpg -->
                 <img src="images/chula.jpg" alt="Chula MOOC Certificate">
             </div>
             <div class="card-body">
@@ -84,16 +68,6 @@
                 <p>
                     เข้าร่วมและสำเร็จการเรียนในรายวิชา <strong>'เปิดโลกเคมี: สารประกอบอินทรีย์และพอลิเมอร์'</strong> จาก Chula MOOC ช่วยเสริมสร้างความเข้าใจที่ลึกซึ้งยิ่งขึ้นเกี่ยวกับเคมีอินทรีย์และเทคโนโลยีพอลิเมอร์ ทำให้เห็นภาพรวมการประยุกต์ใช้สารเคมีและวัสดุในชีวิตประจำวันอย่างเป็นระบบ อีกทั้งยังเป็นการฝึกฝนวินัยในการเรียนรู้ตลอดชีวิต (Lifelong Learning) เพื่อเตรียมความพร้อมสำหรับสายงานวิทยาศาสตร์
                 </p>
-            </div>
-        </div>
-
-        <!-- ส่วนที่ 2: เกียรติบัตร (Certificate Section) -->
-        <h2 class="section-title">📜 เกียรติบัตรและใบรับรอง</h2>
-        <div class="cert-grid">
-            <div class="cert-card">
-                <img src="images/chula.jpg" alt="Chula MOOC Certificate">
-                <h3>เกียรติบัตร Chula MOOC</h3>
-                <p>วิชา 'เปิดโลกเคมี: สารประกอบอินทรีย์และพอลิเมอร์'</p>
             </div>
         </div>
     </div>
