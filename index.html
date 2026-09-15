@@ -17,7 +17,6 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Kanit', sans-serif; }
         body { background-color: var(--bg); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
 
-        /* Navigation */
         nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px);
@@ -30,7 +29,6 @@
         }
         nav a:hover, nav a.active { color: var(--primary); background: rgba(99, 102, 241, 0.08); font-weight: 500; }
 
-        /* Hero Section */
         .hero {
             flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; padding: 120px 20px 60px; position: relative;
@@ -71,13 +69,12 @@
     <nav>
         <a href="index.html" class="active">หน้าแรก</a>
         <a href="about.html">เกี่ยวกับฉัน</a>
-        <a href="academics.html">การศึกษา</a>
         <a href="portfolio.html">ผลงาน</a>
-        <a href="certificate.html">เกียรติบัตร</a>
     </nav>
 
     <div class="hero">
         <div class="img-container">
+            <!-- เชื่อมรูปโปรไฟล์ images.jpg -->
             <img src="images/images.jpg" alt="ปิยพัทธ์ ลีลาทนาพร">
         </div>
         <h1>นายปิยพัทธ์ ลีลาทนาพร</h1>
