@@ -7,39 +7,62 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #f8fafc;
-            --primary: #6366f1;
-            --primary-hover: #4f46e5;
+            --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #e0e7ff 100%);
+            --primary: #0284c7;
+            --primary-light: #38bdf8;
+            --primary-hover: #0369a1;
             --text-main: #0f172a;
-            --text-sub: #64748b;
+            --text-sub: #475569;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Kanit', sans-serif; }
-        body { background-color: var(--bg); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+        
+        body { 
+            background: var(--bg-gradient); 
+            color: var(--text-main); 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden; 
+            position: relative;
+        }
 
+        /* Navigation Bar */
         nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px);
-            padding: 8px 16px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05); z-index: 1000; display: flex; gap: 8px;
+            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px);
+            padding: 8px 16px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15); z-index: 1000; display: flex; gap: 8px;
         }
         nav a {
             color: var(--text-sub); text-decoration: none; padding: 8px 18px;
             border-radius: 20px; font-weight: 400; transition: all 0.3s ease; font-size: 0.95rem;
         }
-        nav a:hover, nav a.active { color: var(--primary); background: rgba(99, 102, 241, 0.08); font-weight: 500; }
+        nav a:hover, nav a.active { color: var(--primary); background: rgba(56, 189, 248, 0.12); font-weight: 500; }
 
-        .hero {
-            flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 120px 20px 60px; position: relative;
+        /* Outer Frame Container (กรอบใหญ่กันหน้าโล่ง) */
+        .page-frame {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 36px;
+            padding: 50px 40px;
+            max-width: 680px;
+            width: 90%;
+            margin: 80px auto 40px;
+            box-shadow: 0 20px 50px rgba(56, 189, 248, 0.12), inset 0 0 0 1px rgba(186, 230, 253, 0.5);
+            position: relative;
+            text-align: center;
         }
 
-        .img-container { position: relative; margin-bottom: 25px; }
+        .img-container { position: relative; margin: 0 auto 25px; width: 170px; height: 170px; }
         .img-container::before {
-            content: ''; position: absolute; inset: -5px;
-            background: linear-gradient(45deg, #6366f1, #a855f7, #ec4899);
-            border-radius: 50%; filter: blur(12px); opacity: 0.6;
-            animation: pulse-glow 4s infinite alternate;
+            content: ''; position: absolute; inset: -6px;
+            background: linear-gradient(45deg, #38bdf8, #818cf8, #7dd3fc);
+            border-radius: 50%; filter: blur(10px); opacity: 0.7;
+            animation: rotate-glow 6s linear infinite;
         }
         .hero img {
             width: 170px; height: 170px; border-radius: 50%; object-fit: cover;
@@ -47,21 +70,46 @@
         }
         .hero img:hover { transform: scale(1.05) rotate(3deg); }
 
-        .hero h1 { font-size: 2.6rem; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.5px; }
-        .hero .subtitle { font-size: 1.25rem; color: var(--primary); font-weight: 500; margin-bottom: 12px; }
-        .hero p { font-size: 1.05rem; color: var(--text-sub); max-width: 550px; margin-bottom: 30px; font-weight: 300; }
+        .hero h1 { font-size: 2.4rem; font-weight: 600; margin-bottom: 8px; color: var(--text-main); }
+        .hero .subtitle { font-size: 1.15rem; color: var(--primary); font-weight: 500; margin-bottom: 12px; }
+        .hero p { font-size: 1rem; color: var(--text-sub); max-width: 500px; margin: 0 auto 30px; font-weight: 300; line-height: 1.6; }
 
         .btn {
-            background: var(--primary); color: white; padding: 12px 32px; border-radius: 30px;
-            text-decoration: none; font-weight: 500; box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%); 
+            color: white; padding: 12px 34px; border-radius: 30px;
+            text-decoration: none; font-weight: 500; 
+            box-shadow: 0 10px 20px rgba(2, 132, 199, 0.25);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            display: inline-flex; align-items: center; gap: 8px;
         }
-        .btn:hover { background: var(--primary-hover); transform: translateY(-3px); box-shadow: 0 15px 25px rgba(99, 102, 241, 0.4); }
+        .btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 25px rgba(2, 132, 199, 0.35); }
 
-        @keyframes pulse-glow {
-            0% { opacity: 0.4; transform: scale(0.98); }
-            100% { opacity: 0.8; transform: scale(1.03); }
+        .floating-icon {
+            position: absolute; font-size: 1.5rem;
+            animation: float-around 4s ease-in-out infinite alternate; user-select: none;
         }
+        .icon-1 { top: -15px; left: -10px; }
+        .icon-2 { bottom: 20px; right: -15px; animation-delay: 1.5s; }
+        .icon-3 { top: 40%; right: -20px; animation-delay: 0.8s; font-size: 1.2rem; }
+
+        .next-page-btn {
+            margin-top: 20px;
+            display: inline-flex; flex-direction: column; align-items: center; gap: 4px;
+            text-decoration: none; color: var(--primary); font-size: 0.85rem; font-weight: 400;
+            transition: all 0.3s ease;
+        }
+        .next-page-btn .arrow-icon {
+            width: 36px; height: 36px; background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 6px 15px rgba(56, 189, 248, 0.2); font-size: 1rem;
+            animation: bounce-down 2s infinite;
+        }
+
+        @keyframes rotate-glow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes float-around { 0% { transform: translateY(0px) rotate(0deg); } 100% { transform: translateY(-12px) rotate(10deg); } }
+        @keyframes bounce-down { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(6px); } 60% { transform: translateY(3px); } }
+
+        @media (max-width: 650px) { .page-frame { padding: 40px 20px; } .hero h1 { font-size: 2rem; } }
     </style>
 </head>
 <body>
@@ -72,15 +120,24 @@
         <a href="portfolio.html">ผลงาน</a>
     </nav>
 
-    <div class="hero">
+    <div class="page-frame hero">
+        <span class="floating-icon icon-1">💊</span>
+        <span class="floating-icon icon-2">✨</span>
+        <span class="floating-icon icon-3">🧪</span>
+
         <div class="img-container">
-            <!-- เชื่อมรูปโปรไฟล์ images.jpg -->
             <img src="images/images.jpg" alt="ปิยพัทธ์ ลีลาทนาพร">
         </div>
         <h1>นายปิยพัทธ์ ลีลาทนาพร</h1>
         <div class="subtitle">นักเรียนชั้น ม.6 | แผนการเรียน วิทยาศาสตร์-คณิตศาสตร์ (MSEP)</div>
         <p>มุ่งมั่นสู่ คณะเภสัชศาสตร์ มหาวิทยาลัยมหิดล ด้วยความสนใจในกระบวนการผลิต กลไกและการออกฤทธิ์ของยา</p>
         <a href="about.html" class="btn">ทำความรู้จักเพิ่มเติม ➔</a>
+
+        <br>
+        <a href="about.html" class="next-page-btn" title="ไปที่หน้า เกี่ยวกับฉัน">
+            <span>เกี่ยวกับฉัน</span>
+            <div class="arrow-icon">↓</div>
+        </a>
     </div>
 
 </body>
