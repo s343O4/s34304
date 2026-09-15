@@ -3,245 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>นายปิยพัทธ์ ลีลาทนาพร | Aspirant Pharmacist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <title>Piyapat Leelatanaporn - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #f0f9ff 100%);
-            --card-bg: rgba(255, 255, 255, 0.92);
-            --blue-dark: #0369a1;
-            --blue-primary: #0284c7;
-            --blue-light: #e0f2fe;
-            --shadow-soft: 0 20px 45px rgba(2, 132, 199, 0.18);
-            --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --bg: #f8fafc;
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --text-main: #0f172a;
+            --text-sub: #64748b;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Prompt', sans-serif;
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Kanit', sans-serif; }
+        body { background-color: var(--bg); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px);
+            padding: 8px 16px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); z-index: 1000; display: flex; gap: 8px;
+        }
+        nav a {
+            color: var(--text-sub); text-decoration: none; padding: 8px 18px;
+            border-radius: 20px; font-weight: 400; transition: all 0.3s ease; font-size: 0.95rem;
+        }
+        nav a:hover, nav a.active { color: var(--primary); background: rgba(99, 102, 241, 0.08); font-weight: 500; }
+
+        /* Hero Section */
+        .hero {
+            flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 120px 20px 60px; position: relative;
         }
 
-        body {
-            background: var(--bg-gradient);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            color: #1e293b;
-            overflow-x: hidden;
-            position: relative;
-            background-attachment: fixed;
+        .img-container { position: relative; margin-bottom: 25px; }
+        .img-container::before {
+            content: ''; position: absolute; inset: -5px;
+            background: linear-gradient(45deg, #6366f1, #a855f7, #ec4899);
+            border-radius: 50%; filter: blur(12px); opacity: 0.6;
+            animation: pulse-glow 4s infinite alternate;
         }
-
-        .chem-particle {
-            position: absolute;
-            font-size: 1.8rem;
-            opacity: 0.35;
-            user-select: none;
-            pointer-events: none;
-            animation: float 8s infinite ease-in-out;
+        .hero img {
+            width: 170px; height: 170px; border-radius: 50%; object-fit: cover;
+            position: relative; border: 4px solid #fff; transition: transform 0.5s ease;
         }
+        .hero img:hover { transform: scale(1.05) rotate(3deg); }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-25px) rotate(15deg); }
+        .hero h1 { font-size: 2.6rem; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .hero .subtitle { font-size: 1.25rem; color: var(--primary); font-weight: 500; margin-bottom: 12px; }
+        .hero p { font-size: 1.05rem; color: var(--text-sub); max-width: 550px; margin-bottom: 30px; font-weight: 300; }
+
+        .btn {
+            background: var(--primary); color: white; padding: 12px 32px; border-radius: 30px;
+            text-decoration: none; font-weight: 500; box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: inline-flex; align-items: center; gap: 8px;
         }
+        .btn:hover { background: var(--primary-hover); transform: translateY(-3px); box-shadow: 0 15px 25px rgba(99, 102, 241, 0.4); }
 
-        .card {
-            background: var(--card-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 2px solid rgba(255, 255, 255, 0.9);
-            border-radius: 36px;
-            box-shadow: var(--shadow-soft);
-            max-width: 480px;
-            width: 100%;
-            text-align: center;
-            padding: 40px 32px;
-            transition: var(--transition);
-            position: relative;
-            z-index: 10;
-        }
-
-        .card:hover {
-            transform: translateY(-8px) scale(1.01);
-            box-shadow: 0 28px 55px rgba(2, 132, 199, 0.25);
-        }
-
-        .time-greeting {
-            font-size: 0.85rem;
-            color: var(--blue-primary);
-            font-weight: 600;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .profile-wrapper {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 20px auto;
-        }
-
-        .profile-wrapper::before {
-            content: "";
-            position: absolute;
-            inset: -6px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #38bdf8, #0284c7, #818cf8);
-            animation: rotateGrad 4s linear infinite;
-            z-index: 1;
-        }
-
-        @keyframes rotateGrad {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .profile-wrapper img {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #ffffff;
-        }
-
-        h1 {
-            font-size: 1.7rem;
-            font-weight: 700;
-            color: var(--blue-dark);
-            margin-bottom: 6px;
-        }
-
-        .pharmacy-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--blue-light);
-            color: var(--blue-dark);
-            padding: 5px 18px;
-            border-radius: 20px;
-            font-size: 0.88rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            border: 1px solid #bae6fd;
-        }
-
-        p.bio {
-            color: #475569;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        .chem-stats {
-            display: flex;
-            justify-content: space-around;
-            background: #f0f9ff;
-            border: 1px solid #e0f2fe;
-            border-radius: 20px;
-            padding: 14px 10px;
-            margin-bottom: 28px;
-        }
-
-        .stat-item h4 {
-            font-size: 0.95rem;
-            color: var(--blue-primary);
-            font-weight: 600;
-            margin-bottom: 2px;
-        }
-
-        .stat-item p {
-            font-size: 0.9rem;
-            color: var(--blue-dark);
-            font-weight: 700;
-        }
-
-        .btn-portfolio {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 16px 28px;
-            border-radius: 50px;
-            font-size: 1.05rem;
-            font-weight: 600;
-            box-shadow: 0 10px 25px rgba(2, 132, 199, 0.3);
-            transition: var(--transition);
-        }
-
-        .btn-portfolio:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(2, 132, 199, 0.45);
-            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-        }
-
-        footer {
-            margin-top: 22px;
-            font-size: 0.8rem;
-            color: #64748b;
+        @keyframes pulse-glow {
+            0% { opacity: 0.4; transform: scale(0.98); }
+            100% { opacity: 0.8; transform: scale(1.03); }
         }
     </style>
 </head>
 <body>
 
-    <div class="chem-particle" style="top: 10%; left: 8%; animation-delay: 0s;">🧪</div>
-    <div class="chem-particle" style="top: 75%; left: 12%; animation-delay: 2s;">💊</div>
-    <div class="chem-particle" style="top: 20%; right: 10%; animation-delay: 1s;">🧬</div>
-    <div class="chem-particle" style="top: 80%; right: 8%; animation-delay: 3s;">🔬</div>
+    <nav>
+        <a href="index.html" class="active">หน้าแรก</a>
+        <a href="about.html">เกี่ยวกับฉัน</a>
+        <a href="academics.html">การศึกษา</a>
+        <a href="portfolio.html">ผลงาน</a>
+        <a href="certificate.html">เกียรติบัตร</a>
+    </nav>
 
-    <div class="card">
-        <div class="time-greeting" id="greeting">Welcome to my Portfolio</div>
-        
-        <div class="profile-wrapper">
-            <img src="images/images.jpg" alt="นายปิยพัทธ์ ลีลาทนาพร">
+    <div class="hero">
+        <div class="img-container">
+            <img src="images/images.jpg" alt="ปิยพัทธ์ ลีลาทนาพร">
         </div>
-
         <h1>นายปิยพัทธ์ ลีลาทนาพร</h1>
-    
-
-        <p class="bio">
-            "เพราะยาทุกเม็ดและสารเคมีทุกตัวคือศิลปะการรักษาชีวิต" <br>
-            ผู้หลงใหลในกลไกทางเคมีและชีววิทยา พร้อมพัฒนาตนเองอย่างไม่หยุดยั้ง
-        </p>
-
-        <div class="chem-stats">
-            <div class="stat-item">
-                <h4>แผนการเรียน</h4>
-                <p><strong>วิทย์-คณิต (MSEP) </strong></p>
-            </div>
-            <div class="stat-item">
-                <h4>การอบรมทางวิชาการ</h4>
-                <p><strong>Chula MOOC เคมีอินทรีย์</strong></p>
-            </div>
-        </div>
-
-        <a href="portfolio.html" class="btn-portfolio">
-            🧪 สำรวจแฟ้มสะสมผลงาน (Portfolio) ➔
-        </a>
-
-        <footer>
-            &copy; Piyapat Leelathanaporn | Future Pharmacist
-        </footer>
+        <div class="subtitle">นักเรียนชั้น ม.6 | แผนการเรียน วิทยาศาสตร์-คณิตศาสตร์ (MSEP)</div>
+        <p>มุ่งมั่นสู่ คณะเภสัชศาสตร์ มหาวิทยาลัยมหิดล ด้วยความสนใจในกระบวนการผลิต กลไกและการออกฤทธิ์ของยา</p>
+        <a href="about.html" class="btn">ทำความรู้จักเพิ่มเติม ➔</a>
     </div>
 
-    <script>
-        const hour = new Date().getHours();
-        const greetingEl = document.getElementById('greeting');
-        if (hour < 12) greetingEl.textContent = "Welcome to my Pharmacy Portfolio";
-        else if (hour < 18) greetingEl.textContent = "🌤️ สวัสดีตอนบ่าย | Aspirant Pharmacist";
-        else greetingEl.textContent = "🌙 สายัณห์สวัสดิ์ | Future Pharmacist Journey";
-    </script>
 </body>
 </html>
