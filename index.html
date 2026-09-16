@@ -3,24 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piyapat Leelatanaporn - Portfolio</title>
+    <title>ทักษะความสามารถ - Piyapat Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #e0e7ff 100%);
             --primary: #0284c7;
-            --primary-light: #38bdf8;
             --text-main: #0f172a;
             --text-sub: #475569;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Kanit', sans-serif; }
-        
-        body { 
-            background: var(--bg-gradient); color: var(--text-main); min-height: 100vh; 
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            overflow-x: hidden; position: relative;
-        }
+        body { background: var(--bg-gradient); color: var(--text-main); min-height: 100vh; padding-top: 100px; padding-bottom: 60px; }
 
         nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
@@ -28,61 +23,98 @@
             padding: 8px 16px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.9);
             box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15); z-index: 1000; display: flex; gap: 8px;
         }
-        nav a { color: var(--text-sub); text-decoration: none; padding: 8px 18px; border-radius: 20px; font-size: 0.95rem; transition: all 0.3s ease; }
+        nav a { color: var(--text-sub); text-decoration: none; padding: 8px 18px; border-radius: 20px; font-size: 0.95rem; transition: all 0.3s; }
         nav a:hover, nav a.active { color: var(--primary); background: rgba(56, 189, 248, 0.12); font-weight: 500; }
 
         .page-frame {
-            background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(20px);
-            border: 2px solid rgba(255, 255, 255, 0.8); border-radius: 36px;
-            padding: 50px 40px; max-width: 680px; width: 90%; margin: 80px auto 40px;
-            box-shadow: 0 20px 50px rgba(56, 189, 248, 0.12); position: relative; text-align: center;
+            max-width: 950px; margin: 0 auto; padding: 40px;
+            background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(20px);
+            border-radius: 36px; border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 20px 50px rgba(56, 189, 248, 0.12); position: relative;
         }
 
-        .img-container { position: relative; margin: 0 auto 25px; width: 170px; height: 170px; }
-        .img-container::before {
-            content: ''; position: absolute; inset: -6px;
-            background: linear-gradient(45deg, #38bdf8, #818cf8, #7dd3fc);
-            border-radius: 50%; filter: blur(10px); opacity: 0.7; animation: rotate-glow 6s linear infinite;
+        .header-title { font-size: 2.2rem; font-weight: 600; color: var(--text-main); margin-bottom: 8px; }
+        .header-subtitle { font-size: 1rem; color: var(--text-sub); font-weight: 300; margin-bottom: 35px; }
+
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+
+        .skill-card {
+            background: white; border-radius: 24px; padding: 30px 25px;
+            border: 1px solid rgba(186, 230, 253, 0.8); box-shadow: 0 10px 25px rgba(56, 189, 248, 0.05);
+            transition: all 0.3s ease; display: flex; flex-direction: column;
         }
-        .hero img { width: 170px; height: 170px; border-radius: 50%; object-fit: cover; position: relative; border: 4px solid #fff; transition: transform 0.5s ease; }
-        .hero img:hover { transform: scale(1.05) rotate(3deg); }
+        .skill-card:hover { transform: translateY(-5px); box-shadow: 0 20px 35px rgba(56, 189, 248, 0.12); }
 
-        .hero h1 { font-size: 2.4rem; font-weight: 600; margin-bottom: 8px; color: var(--text-main); }
-        .hero .subtitle { font-size: 1.15rem; color: var(--primary); font-weight: 500; margin-bottom: 12px; }
-        .hero p { font-size: 1rem; color: var(--text-sub); max-width: 500px; margin: 0 auto 30px; font-weight: 300; line-height: 1.6; }
+        .card-icon { font-size: 2.2rem; color: var(--primary); margin-bottom: 16px; }
+        .card-heading { font-size: 1.2rem; font-weight: 600; color: var(--text-main); margin-bottom: 8px; }
+        .card-desc { font-size: 0.9rem; color: var(--text-sub); line-height: 1.6; font-weight: 300; margin-bottom: 20px; flex-grow: 1; }
 
-        .btn {
-            background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%); 
-            color: white; padding: 12px 34px; border-radius: 30px; text-decoration: none; font-weight: 500; 
-            box-shadow: 0 10px 20px rgba(2, 132, 199, 0.25); transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;
-        }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(2, 132, 199, 0.35); }
+        .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #f1f5f9; color: var(--text-sub); padding: 6px 14px; border-radius: 12px; font-size: 0.85rem; border: 1px solid #e2e8f0; }
 
-        /* Bottom Nav Links Area */
-        .bottom-nav { display: flex; justify-content: flex-end; margin-top: 35px; border-top: 1px solid rgba(186, 230, 253, 0.5); padding-top: 20px; }
+        /* Bottom Navigation Buttons (ไป-กลับ) */
+        .bottom-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 35px; border-top: 1px solid rgba(186, 230, 253, 0.5); padding-top: 20px; }
         .nav-btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--primary); font-weight: 500; transition: all 0.3s; }
-        .nav-btn:hover { opacity: 0.8; transform: translateX(3px); }
+        .nav-btn:hover { opacity: 0.8; }
         .arrow-circle { width: 32px; height: 32px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
-        @keyframes rotate-glow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        @media (max-width: 650px) { .page-frame { padding: 40px 20px; } .hero h1 { font-size: 2rem; } }
+        @media (max-width: 650px) { .page-frame { padding: 25px 20px; } }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="active">หน้าแรก</a>
+        <a href="index.html">หน้าแรก</a>
         <a href="about.html">เกี่ยวกับฉัน</a>
         <a href="education.html">เป้าหมายศึกษาต่อ</a>
-        <a href="skills.html">ทักษะความสามารถ</a>
+        <a href="skills.html" class="active">ทักษะความสามารถ</a>
         <a href="portfolio.html">ผลงาน</a>
     </nav>
 
-    <div class="page-frame hero">
-        <div class="img-container">
-            <img src="images/images.jpg" alt="ปิยพัทธ์ ลีลาทนาพร">
+    <div class="page-frame">
+        <h1 class="header-title">Skills & Capabilities</h1>
+        <p class="header-subtitle">ทักษะ ความชำนาญ และเครื่องมือที่ใช้ในการเรียนรู้ และกระบวนการคิดทางวิทยาศาสตร์</p>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
+                <div class="card-heading">Science & Chemistry</div>
+                <div class="card-desc">ความรู้ความเข้าใจด้านเคมีอินทรีย์ ปฏิกิริยาเคมี และทักษะการปฏิบัติการทางวิทยาศาสตร์</div>
+                <div class="tag-list">
+                    <span class="tag">Organic Chemistry</span>
+                    <span class="tag">Lab Equipment</span>
+                    <span class="tag">Chemical Calculation</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+                <div class="card-heading">Analytical & Soft Skills</div>
+                <div class="card-desc">ทักษะการคิดวิเคราะห์อย่างเป็นระบบ การแก้ปัญหาเฉพาะหน้า และการทำงานร่วมกับผู้อื่น</div>
+                <div class="tag-list">
+                    <span class="tag">Problem Solving</span>
+                    <span class="tag">Teamwork</span>
+                    <span class="tag">Critical Thinking</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                <div class="card-heading">Tools & Technology</div>
+                <div class="card-desc">ซอฟต์แวร์และเครื่องมือดิจิทัลสำหรับการนำเสนอผลงาน การสืบค้นข้อมูล และการจัดการเอกสาร</div>
+                <div class="tag-list">
+                    <span class="tag">Canva</span>
+                    <span class="tag">Microsoft Office</span>
+                    <span class="tag">Online Learning (MOOC)</span>
+                </div>
+            </div>
         </div>
-        <h1>นายปิยพัทธ์ ลีลาทนาพร</h1>
-        <div class="subtitle">นักเรียนชั้น ม.6 | แผนการเรียน วิทยาศาสตร์-คณิตศาสตร์ (MSEP)</div>
-        <p>มุ่งมั่นสู่ คณะเภสัชศาสตร์ มหาวิทยาลัยมหิดล ด้วยความสนใจในกระบวนการผลิต กลไกและการออกฤทธิ์ของยา</p>
-        <a href="about.html" class="btn">ทำความรู้จักเพิ่มเติม ➔</a>
+
+        <div class="bottom-nav">
+            <a href="education.html" class="nav-btn"><div class="arrow-circle">⬅</div> ย้อนกลับ</a>
+            <a href="portfolio.html" class="nav-btn">ไปที่หน้า ผลงาน <div class="arrow-circle">➔</div></a>
+        </div>
+    </div>
+
+</body>
+</html>
