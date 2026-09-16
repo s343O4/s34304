@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เป้าหมายการศึกษาต่อ</title>
-    <!-- FontAwesome สำหรับใช้งานไอคอน -->
+    <title>เป้าหมายและการศึกษาต่อ</title>
+    <!-- FontAwesome สำหรับไอคอน -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -27,7 +27,7 @@
             width: 100%;
         }
 
-        /* เมนูนำทาง Header */
+        /* เมนูนำทาง Navbar */
         .navbar {
             display: flex;
             justify-content: center;
@@ -62,7 +62,7 @@
             gap: 10px;
         }
 
-        /* โครงสร้างการ์ด */
+        /* การจัดวางแบบ Grid */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -75,7 +75,6 @@
             padding: 24px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.03);
             border: 1px solid #edf2f7;
-            position: relative;
         }
 
         .badge {
@@ -85,14 +84,6 @@
             font-size: 13px;
             font-weight: 600;
             margin-bottom: 15px;
-        }
-
-        .badge-target {
-            background-color: #ebf8ff;
-            color: #3182ce;
-        }
-
-        .badge-future {
             background-color: #ebf8ff;
             color: #3182ce;
         }
@@ -128,10 +119,10 @@
             line-height: 1.6;
         }
 
-        /* ปุ่มเนวิเกชันด้านล่าง */
+        /* ลิงก์นำทางด้านล่าง */
         .footer-nav {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 35px;
         }
 
         .footer-nav a {
@@ -142,9 +133,11 @@
             color: #3182ce;
             font-weight: 600;
             font-size: 15px;
+            transition: color 0.2s;
         }
 
         .footer-nav a:hover {
+            color: #2b6cb0;
             text-decoration: underline;
         }
     </style>
@@ -152,22 +145,23 @@
 <body>
 
     <div class="container">
-        <!-- แถบเมนูนำทาง -->
+        <!-- เมนูนำทางด้านบน (เชื่อมโยงตามลำดับ) -->
         <nav class="navbar">
             <a href="index.html">หน้าแรก</a>
             <a href="about.html">เกี่ยวกับฉัน</a>
+            <a href="education.html" class="active">เป้าหมายศึกษาต่อ</a>
             <a href="portfolio.html">ผลงาน</a>
         </nav>
 
-        <!-- หัวข้อเป้าหมายและการศึกษาต่อ -->
+        <!-- หัวข้อเนื้อหา -->
         <div class="section-title">
             🎯 เป้าหมายและการศึกษาต่อ
         </div>
 
         <div class="grid-container">
-            <!-- การ์ดมหาลัยเป้าหมาย -->
+            <!-- มหาวิทยาลัยเป้าหมาย -->
             <div class="card">
-                <span class="badge badge-target">• Target University</span>
+                <span class="badge">• Target University</span>
                 <div class="card-icon">
                     <i class="fa-solid fa-university"></i>
                 </div>
@@ -176,9 +170,9 @@
                 <div class="card-subheading">คณะเภสัชศาสตร์</div>
             </div>
 
-            <!-- การ์ดเป้าหมายการศึกษา -->
+            <!-- เป้าหมายการศึกษา -->
             <div class="card">
-                <span class="badge badge-future">• Future Plan</span>
+                <span class="badge">• Future Plan</span>
                 <div class="card-icon">
                     <i class="fa-solid fa-rocket"></i>
                 </div>
@@ -189,7 +183,7 @@
             </div>
         </div>
 
-        <!-- ปุ่มลิงก์ไปหน้าถัดไป -->
+        <!-- ปุ่มด้านล่าง นำทางไปยังหน้าถัดไป (ผลงาน) -->
         <div class="footer-nav">
             <a href="portfolio.html">ไปที่หน้า ผลงาน <i class="fa-solid fa-arrow-right"></i></a>
         </div>
