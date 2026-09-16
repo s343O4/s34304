@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เป้าหมายการศึกษาต่อ</title>
+    <!-- FontAwesome สำหรับใช้งานไอคอน -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Sarabun', 'Prompt', sans-serif;
+        }
+
+        body {
+            background-color: #f4f7fb;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* เมนูนำทาง Header */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            color: #666;
+            font-weight: 500;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .navbar a.active, .navbar a:hover {
+            background-color: #e8f1ff;
+            color: #2b6cb0;
+        }
+
+        /* ส่วนหัวเรื่อง */
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* โครงสร้างการ์ด */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #edf2f7;
+            position: relative;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .badge-target {
+            background-color: #ebf8ff;
+            color: #3182ce;
+        }
+
+        .badge-future {
+            background-color: #ebf8ff;
+            color: #3182ce;
+        }
+
+        .card-icon {
+            font-size: 32px;
+            color: #4a5568;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 4px;
+        }
+
+        .card-heading {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2b6cb0;
+            margin-bottom: 6px;
+        }
+
+        .card-subheading {
+            font-size: 15px;
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        /* ปุ่มเนวิเกชันด้านล่าง */
+        .footer-nav {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .footer-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #3182ce;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- แถบเมนูนำทาง -->
+        <nav class="navbar">
+            <a href="index.html">หน้าแรก</a>
+            <a href="about.html">เกี่ยวกับฉัน</a>
+            <a href="portfolio.html">ผลงาน</a>
+        </nav>
+
+        <!-- หัวข้อเป้าหมายและการศึกษาต่อ -->
+        <div class="section-title">
+            🎯 เป้าหมายและการศึกษาต่อ
+        </div>
+
+        <div class="grid-container">
+            <!-- การ์ดมหาลัยเป้าหมาย -->
+            <div class="card">
+                <span class="badge badge-target">• Target University</span>
+                <div class="card-icon">
+                    <i class="fa-solid fa-university"></i>
+                </div>
+                <div class="card-title">มหาวิทยาลัยที่มุ่งหวัง</div>
+                <div class="card-heading">มหาวิทยาลัยมหิดล</div>
+                <div class="card-subheading">คณะเภสัชศาสตร์</div>
+            </div>
+
+            <!-- การ์ดเป้าหมายการศึกษา -->
+            <div class="card">
+                <span class="badge badge-future">• Future Plan</span>
+                <div class="card-icon">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+                <div class="card-title">เป้าหมายการศึกษา</div>
+                <div class="card-desc">
+                    มุ่งมั่นพัฒนาตนเอง และหาความรู้ในการเข้าศึกษาต่อและวางแผนในการประกอบอาชีพ ในอนาคต
+                </div>
+            </div>
+        </div>
+
+        <!-- ปุ่มลิงก์ไปหน้าถัดไป -->
+        <div class="footer-nav">
+            <a href="portfolio.html">ไปที่หน้า ผลงาน <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+</body>
+</html>
