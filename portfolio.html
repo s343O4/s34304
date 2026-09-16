@@ -52,6 +52,12 @@
         .card-body h3 { font-size: 1.25rem; margin: 10px 0; color: var(--text-main); }
         .card-body p { font-size: 0.95rem; color: var(--text-sub); font-weight: 300; line-height: 1.6; }
 
+        /* Bottom Navigation Buttons (ไป-กลับ) */
+        .bottom-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 35px; border-top: 1px solid rgba(186, 230, 253, 0.5); padding-top: 20px; }
+        .nav-btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--primary); font-weight: 500; transition: all 0.3s; }
+        .nav-btn:hover { opacity: 0.8; }
+        .arrow-circle { width: 32px; height: 32px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
         @media (max-width: 650px) { .card { grid-template-columns: 1fr; } .page-frame { padding: 20px; } }
     </style>
 </head>
@@ -61,6 +67,7 @@
         <a href="index.html">หน้าแรก</a>
         <a href="about.html">เกี่ยวกับฉัน</a>
         <a href="education.html">เป้าหมายศึกษาต่อ</a>
+        <a href="skills.html">ทักษะความสามารถ</a>
         <a href="portfolio.html" class="active">ผลงาน</a>
     </nav>
 
@@ -80,6 +87,11 @@
                     เข้าร่วมและสำเร็จการเรียนในรายวิชา <strong>'เปิดโลกเคมี: สารประกอบอินทรีย์และพอลิเมอร์'</strong> จาก Chula MOOC ช่วยเสริมสร้างความเข้าใจที่ลึกซึ้งยิ่งขึ้นเกี่ยวกับเคมีอินทรีย์และเทคโนโลยีพอลิเมอร์ ทำให้เห็นภาพรวมการประยุกต์ใช้สารเคมีและวัสดุในชีวิตประจำวันอย่างเป็นระบบ อีกทั้งยังเป็นการฝึกฝนวินัยในการเรียนรู้ตลอดชีวิต (Lifelong Learning) เพื่อเตรียมความพร้อมสำหรับสายงานวิทยาศาสตร์
                 </p>
             </div>
+        </div>
+
+        <div class="bottom-nav">
+            <a href="skills.html" class="nav-btn"><div class="arrow-circle">⬅</div> ย้อนกลับ</a>
+            <a href="index.html" class="nav-btn">กลับสู่หน้าแรก <div class="arrow-circle">🏠</div></a>
         </div>
     </div>
 
