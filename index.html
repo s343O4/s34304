@@ -29,7 +29,7 @@
             position: relative;
         }
 
-        /* Navigation Bar */
+        /* Navigation Bar (4 แถบ) */
         nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px);
@@ -42,7 +42,6 @@
         }
         nav a:hover, nav a.active { color: var(--primary); background: rgba(56, 189, 248, 0.12); font-weight: 500; }
 
-        /* Outer Frame Container (กรอบใหญ่กันหน้าโล่ง) */
         .page-frame {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(20px);
@@ -114,9 +113,11 @@
 </head>
 <body>
 
+    <!-- แถบเมนูนำทาง 4 แถบ -->
     <nav>
         <a href="index.html" class="active">หน้าแรก</a>
         <a href="about.html">เกี่ยวกับฉัน</a>
+        <a href="education.html">เป้าหมายศึกษาต่อ</a>
         <a href="portfolio.html">ผลงาน</a>
     </nav>
 
