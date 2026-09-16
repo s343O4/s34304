@@ -35,9 +35,7 @@
 
         .section-title { font-size: 1.6rem; color: var(--text-main); margin-bottom: 25px; display: flex; align-items: center; gap: 10px; }
 
-        .grid-container {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;
-        }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 
         .card {
             background: white; border-radius: 24px; padding: 28px;
@@ -46,10 +44,7 @@
         }
         .card:hover { transform: translateY(-5px); box-shadow: 0 20px 35px rgba(56, 189, 248, 0.12); }
 
-        .badge {
-            display: inline-block; background: #e0f2fe; color: var(--primary);
-            padding: 4px 14px; border-radius: 12px; font-size: 0.85rem; font-weight: 500; margin-bottom: 15px;
-        }
+        .badge { display: inline-block; background: #e0f2fe; color: var(--primary); padding: 4px 14px; border-radius: 12px; font-size: 0.85rem; font-weight: 500; margin-bottom: 15px; }
 
         .card-icon { font-size: 2.2rem; color: var(--primary); margin-bottom: 12px; }
         .card-title { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 4px; }
@@ -57,11 +52,11 @@
         .card-subheading { font-size: 1.05rem; color: var(--primary); font-weight: 500; margin-bottom: 10px; }
         .card-desc { font-size: 0.95rem; color: var(--text-sub); line-height: 1.6; font-weight: 300; }
 
-        .next-page-btn {
-            display: flex; justify-content: center; align-items: center; gap: 8px;
-            margin-top: 35px; text-decoration: none; color: var(--primary); font-weight: 500;
-        }
-        .next-page-btn .arrow { width: 32px; height: 32px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        /* Bottom Navigation Buttons (ไป-กลับ) */
+        .bottom-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 35px; border-top: 1px solid rgba(186, 230, 253, 0.5); padding-top: 20px; }
+        .nav-btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--primary); font-weight: 500; transition: all 0.3s; }
+        .nav-btn:hover { opacity: 0.8; }
+        .arrow-circle { width: 32px; height: 32px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
         @media (max-width: 650px) { .page-frame { padding: 20px; } }
     </style>
@@ -72,6 +67,7 @@
         <a href="index.html">หน้าแรก</a>
         <a href="about.html">เกี่ยวกับฉัน</a>
         <a href="education.html" class="active">เป้าหมายศึกษาต่อ</a>
+        <a href="skills.html">ทักษะความสามารถ</a>
         <a href="portfolio.html">ผลงาน</a>
     </nav>
 
@@ -97,10 +93,10 @@
             </div>
         </div>
 
-        <!-- ลิงก์ไปยังหน้าถัดไป: ผลงาน -->
-        <a href="portfolio.html" class="next-page-btn">
-            ไปที่หน้า ผลงาน <div class="arrow">➔</div>
-        </a>
+        <div class="bottom-nav">
+            <a href="about.html" class="nav-btn"><div class="arrow-circle">⬅</div> ย้อนกลับ</a>
+            <a href="skills.html" class="nav-btn">ไปที่หน้า ทักษะความสามารถ <div class="arrow-circle">➔</div></a>
+        </div>
     </div>
 
 </body>
