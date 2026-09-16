@@ -9,7 +9,10 @@
     <style>
         :root { --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #e0e7ff 100%); --primary: #0284c7; --text-main: #0f172a; --text-sub: #475569; }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Kanit', sans-serif; }
-        body { background: var(--bg-gradient); color: var(--text-main); min-height: 100vh; padding-top: 100px; padding-bottom: 60px; }
+        body { background: var(--bg-gradient); color: var(--text-main); min-height: 100vh; padding-top: 100px; padding-bottom: 60px; overflow-x: hidden; }
+
+        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15); } 50% { box-shadow: 0 18px 40px rgba(56, 189, 248, 0.28); } }
+        @keyframes floatCard { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-6px); } }
 
         nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
@@ -17,27 +20,50 @@
             padding: 6px 12px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 8px 25px rgba(56, 189, 248, 0.12); z-index: 1000; display: flex; align-items: center; gap: 6px;
         }
-        nav a { color: #334155; text-decoration: none; padding: 10px 22px; border-radius: 30px; font-size: 0.95rem; transition: all 0.25s ease; }
-        nav a:hover { color: var(--primary); }
+        nav a { color: #334155; text-decoration: none; padding: 10px 22px; border-radius: 30px; font-size: 0.95rem; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        nav a:hover { color: var(--primary); transform: translateY(-2px); }
         nav a.active { color: var(--primary); background: #e0f2fe; font-weight: 500; }
 
-        .page-frame { max-width: 900px; margin: 0 auto; padding: 40px; background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(20px); border-radius: 36px; border: 2px solid rgba(255, 255, 255, 0.8); box-shadow: 0 20px 50px rgba(56, 189, 248, 0.12); }
+        .page-frame { 
+            max-width: 900px; margin: 0 auto; padding: 40px; 
+            background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(20px); 
+            border-radius: 36px; border: 2px solid rgba(255, 255, 255, 0.8); 
+            animation: pulseGlow 6s infinite ease-in-out;
+        }
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
-        .skill-card { background: white; border-radius: 20px; padding: 25px; border: 1px solid rgba(186, 230, 253, 0.8); }
-        .card-icon { font-size: 2rem; color: var(--primary); margin-bottom: 12px; }
+        
+        .skill-card { 
+            background: white; border-radius: 20px; padding: 25px; 
+            border: 1px solid rgba(186, 230, 253, 0.8); 
+            animation: floatCard 5s ease-in-out infinite; 
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .skill-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 12px 25px rgba(2, 132, 199, 0.12); border-color: var(--primary); }
+        
+        .card-icon { font-size: 2rem; color: var(--primary); margin-bottom: 12px; transition: transform 0.3s ease; }
+        .skill-card:hover .card-icon { transform: scale(1.2) rotate(8deg); }
+
         .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 15px; }
-        .tag { background: #f1f5f9; color: var(--text-sub); padding: 4px 10px; border-radius: 8px; font-size: 0.8rem; }
+        .tag { 
+            background: #f1f5f9; color: var(--text-sub); padding: 5px 12px; border-radius: 12px; font-size: 0.8rem; 
+            transition: all 0.25s ease; cursor: default;
+        }
+        .skill-card:hover .tag { background: #bae6fd; color: #0369a1; transform: translateY(-2px); }
 
         .bottom-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 25px; padding-bottom: 25px; border-bottom: 1px solid rgba(186, 230, 253, 0.6); }
-        .nav-btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--primary); font-weight: 500; }
-        .arrow-circle { width: 32px; height: 32px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .nav-btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--primary); font-weight: 500; transition: transform 0.25s ease; }
+        .nav-btn:hover { transform: translateX(4px); }
+        .nav-btn:first-child:hover { transform: translateX(-4px); }
+        .arrow-circle { width: 32px; height: 32px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: all 0.3s ease; }
+        .nav-btn:hover .arrow-circle { background: var(--primary); color: white; }
 
         .contact-section { margin-top: 25px; padding-top: 5px; }
         .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: left; }
-        .contact-item { display: flex; flex-direction: column; gap: 4px; }
+        .contact-item { display: flex; flex-direction: column; gap: 4px; transition: transform 0.2s ease; }
+        .contact-item:hover { transform: translateY(-2px); }
         .contact-label { font-size: 0.95rem; font-weight: 600; color: var(--text-main); }
         .contact-value { font-size: 0.9rem; color: var(--text-sub); }
-        .contact-value a { color: var(--text-sub); text-decoration: none; }
+        .contact-value a { color: var(--text-sub); text-decoration: none; transition: color 0.2s ease; }
         .contact-value a:hover { color: var(--primary); text-decoration: underline; }
 
         @media (max-width: 650px) { .page-frame { padding: 20px; } .contact-grid { grid-template-columns: 1fr; text-align: center; } }
@@ -67,7 +93,7 @@
                     <span class="tag">Lab Equipment</span>
                 </div>
             </div>
-            <div class="skill-card">
+            <div class="skill-card" style="animation-delay: 0.3s;">
                 <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
                 <h3>Analytical Skills</h3>
                 <p style="font-size: 0.88rem; color: var(--text-sub); margin-top: 6px;">การคิดเชิงวิเคราะห์และการแก้ปัญหา</p>
@@ -76,7 +102,7 @@
                     <span class="tag">Problem Solving</span>
                 </div>
             </div>
-            <div class="skill-card">
+            <div class="skill-card" style="animation-delay: 0.6s;">
                 <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
                 <h3>Tools & Tech</h3>
                 <p style="font-size: 0.88rem; color: var(--text-sub); margin-top: 6px;">เครื่องมือดิจิทัลสำหรับการเรียนรู้และนำเสนอ</p>
@@ -92,3 +118,23 @@
             <a href="portfolio.html" class="nav-btn">ไปที่หน้า ผลงาน <div class="arrow-circle">➔</div></a>
         </div>
 
+        <div class="contact-section">
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <span class="contact-label">Phone</span>
+                    <span class="contact-value">098-561-6468</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Email</span>
+                    <span class="contact-value">s34434@banbung.ac.th</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Follow Me</span>
+                    <span class="contact-value"><a href="https://www.instagram.com/holychxit/" target="_blank">Instagram</a> | <a href="https://www.facebook.com/holychxit" target="_blank">Facebook</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
