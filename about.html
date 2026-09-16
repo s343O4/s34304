@@ -9,7 +9,6 @@
         :root {
             --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #e0e7ff 100%);
             --primary: #0284c7;
-            --primary-light: #e0f2fe;
             --text-main: #0f172a;
             --text-sub: #475569;
         }
@@ -49,23 +48,21 @@
         .skills-grid { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
         .skill-tag { background: #bae6fd; color: #0369a1; padding: 6px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; }
 
-        .section-title { font-size: 1.4rem; margin: 35px 0 20px; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
+        .section-title { font-size: 1.4rem; margin: 35px 0 20px; color: var(--text-main); }
 
         .academic-card {
             background: white; border-radius: 20px; padding: 25px;
             border: 1px solid rgba(186, 230, 253, 0.8); box-shadow: 0 10px 25px rgba(56, 189, 248, 0.05);
-            transition: all 0.3s ease; position: relative;
         }
-        .academic-card:hover { transform: translateY(-3px); }
         .academic-card h3 { font-size: 1.15rem; color: var(--text-main); margin-bottom: 8px; }
         .academic-card p { color: var(--text-sub); font-size: 0.95rem; line-height: 1.6; }
         .badge-academic { display: inline-block; background: #e0f2fe; color: var(--primary); padding: 4px 12px; border-radius: 12px; font-size: 0.85rem; font-weight: 500; margin-top: 10px; }
 
-        .next-page-btn {
-            display: flex; justify-content: center; align-items: center; gap: 8px;
-            margin-top: 30px; text-decoration: none; color: var(--primary); font-weight: 500;
-        }
-        .next-page-btn .arrow { width: 32px; height: 32px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        /* Bottom Navigation Buttons (ไป-กลับ) */
+        .bottom-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 35px; border-top: 1px solid rgba(186, 230, 253, 0.5); padding-top: 20px; }
+        .nav-btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--primary); font-weight: 500; transition: all 0.3s; }
+        .nav-btn:hover { opacity: 0.8; }
+        .arrow-circle { width: 32px; height: 32px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
         @media (max-width: 650px) { .card { grid-template-columns: 1fr; text-align: center; } h1::after { margin: 5px auto 0; } .page-frame { padding: 20px; } }
     </style>
@@ -76,6 +73,7 @@
         <a href="index.html">หน้าแรก</a>
         <a href="about.html" class="active">เกี่ยวกับฉัน</a>
         <a href="education.html">เป้าหมายศึกษาต่อ</a>
+        <a href="skills.html">ทักษะความสามารถ</a>
         <a href="portfolio.html">ผลงาน</a>
     </nav>
 
@@ -105,10 +103,10 @@
             <span class="badge-academic">เน้นย้ำความรู้พื้นฐานวิทยาศาสตร์และเคมี</span>
         </div>
 
-        <!-- ลิงก์ไปยังหน้าถัดไป: เป้าหมายศึกษาต่อ -->
-        <a href="education.html" class="next-page-btn">
-            ไปที่หน้า เป้าหมายและการศึกษาต่อ <div class="arrow">➔</div>
-        </a>
+        <div class="bottom-nav">
+            <a href="index.html" class="nav-btn"><div class="arrow-circle">⬅</div> ย้อนกลับ</a>
+            <a href="education.html" class="nav-btn">ไปที่หน้า เป้าหมายศึกษาต่อ <div class="arrow-circle">➔</div></a>
+        </div>
     </div>
 
 </body>
