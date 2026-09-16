@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เกี่ยวกับฉัน - Piyapat Portfolio</title>
+    <title>เป้าหมายศึกษาต่อ - Piyapat Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #e0e7ff 100%);
             --primary: #0284c7;
-            --primary-light: #e0f2fe;
             --text-main: #0f172a;
             --text-sub: #475569;
         }
@@ -17,7 +17,6 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Kanit', sans-serif; }
         body { background: var(--bg-gradient); color: var(--text-main); min-height: 100vh; padding-top: 100px; padding-bottom: 60px; }
 
-        /* Navigation Bar (4 แถบ) */
         nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px);
@@ -34,82 +33,73 @@
             box-shadow: 0 20px 50px rgba(56, 189, 248, 0.12); position: relative;
         }
 
+        .section-title { font-size: 1.6rem; color: var(--text-main); margin-bottom: 25px; display: flex; align-items: center; gap: 10px; }
+
+        .grid-container {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;
+        }
+
         .card {
-            background: white; border-radius: 24px; padding: 35px;
-            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.05); border: 1px solid rgba(186, 230, 253, 0.6);
-            display: grid; grid-template-columns: 220px 1fr; gap: 35px; align-items: start;
-        }
-        .card img { width: 100%; height: 260px; border-radius: 16px; object-fit: cover; }
-
-        h1 { font-size: 1.8rem; margin-bottom: 15px; color: var(--text-main); }
-        h1::after { content: ''; display: block; width: 40px; height: 4px; background: var(--primary); border-radius: 2px; margin-top: 5px; }
-
-        .info-item { margin-bottom: 12px; font-size: 1rem; color: var(--text-sub); line-height: 1.6; }
-        .info-item strong { color: var(--text-main); font-weight: 500; }
-
-        .skills-grid { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
-        .skill-tag { background: #bae6fd; color: #0369a1; padding: 6px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; }
-
-        .section-title { font-size: 1.4rem; margin: 35px 0 20px; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
-
-        .academic-card {
-            background: white; border-radius: 20px; padding: 25px;
+            background: white; border-radius: 24px; padding: 28px;
             border: 1px solid rgba(186, 230, 253, 0.8); box-shadow: 0 10px 25px rgba(56, 189, 248, 0.05);
-            transition: all 0.3s ease; position: relative;
+            transition: all 0.3s ease;
         }
-        .academic-card:hover { transform: translateY(-3px); }
-        .academic-card h3 { font-size: 1.15rem; color: var(--text-main); margin-bottom: 8px; }
-        .academic-card p { color: var(--text-sub); font-size: 0.95rem; line-height: 1.6; }
-        .badge-academic { display: inline-block; background: #e0f2fe; color: var(--primary); padding: 4px 12px; border-radius: 12px; font-size: 0.85rem; font-weight: 500; margin-top: 10px; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 20px 35px rgba(56, 189, 248, 0.12); }
+
+        .badge {
+            display: inline-block; background: #e0f2fe; color: var(--primary);
+            padding: 4px 14px; border-radius: 12px; font-size: 0.85rem; font-weight: 500; margin-bottom: 15px;
+        }
+
+        .card-icon { font-size: 2.2rem; color: var(--primary); margin-bottom: 12px; }
+        .card-title { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 4px; }
+        .card-heading { font-size: 1.25rem; font-weight: 600; color: var(--text-main); margin-bottom: 4px; }
+        .card-subheading { font-size: 1.05rem; color: var(--primary); font-weight: 500; margin-bottom: 10px; }
+        .card-desc { font-size: 0.95rem; color: var(--text-sub); line-height: 1.6; font-weight: 300; }
 
         .next-page-btn {
             display: flex; justify-content: center; align-items: center; gap: 8px;
-            margin-top: 30px; text-decoration: none; color: var(--primary); font-weight: 500;
+            margin-top: 35px; text-decoration: none; color: var(--primary); font-weight: 500;
         }
         .next-page-btn .arrow { width: 32px; height: 32px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
-        @media (max-width: 650px) { .card { grid-template-columns: 1fr; text-align: center; } h1::after { margin: 5px auto 0; } .page-frame { padding: 20px; } }
+        @media (max-width: 650px) { .page-frame { padding: 20px; } }
     </style>
 </head>
 <body>
 
-    <!-- แถบเมนูนำทาง 4 แถบ -->
     <nav>
         <a href="index.html">หน้าแรก</a>
-        <a href="about.html" class="active">เกี่ยวกับฉัน</a>
-        <a href="education.html">เป้าหมายศึกษาต่อ</a>
+        <a href="about.html">เกี่ยวกับฉัน</a>
+        <a href="education.html" class="active">เป้าหมายศึกษาต่อ</a>
         <a href="portfolio.html">ผลงาน</a>
     </nav>
 
     <div class="page-frame">
-        <div class="card">
-            <img src="images/images.jpg" alt="ปิยพัทธ์ ลีลาทนาพร">
-            <div>
-                <h1>About Me</h1>
-                <div class="info-item"><strong>ชื่อ-นามสกุล:</strong> นายปิยพัทธ์ ลีลาทนาพร</div>
-                <div class="info-item"><strong>ความสนใจส่วนตัว:</strong> สนใจในกระบวนการผลิต กลไกและการออกฤทธิ์ของยา</div>
-                <div class="info-item" style="margin-top: 15px;">
-                    <strong>ทักษะและความสามารถ:</strong>
-                    <div class="skills-grid">
-                        <span class="skill-tag">🤝 การทำงานเป็นทีม</span>
-                        <span class="skill-tag">💡 การแก้ไขปัญหาเฉพาะหน้า</span>
-                        <span class="skill-tag">🌐 ทักษะทางภาษา</span>
-                    </div>
+        <h2 class="section-title">🎯 เป้าหมายและการศึกษาต่อ</h2>
+
+        <div class="grid-container">
+            <div class="card">
+                <span class="badge">• Target University</span>
+                <div class="card-icon"><i class="fa-solid fa-university"></i></div>
+                <div class="card-title">มหาวิทยาลัยที่มุ่งหวัง</div>
+                <div class="card-heading">มหาวิทยาลัยมหิดล</div>
+                <div class="card-subheading">คณะเภสัชศาสตร์</div>
+            </div>
+
+            <div class="card">
+                <span class="badge">• Future Plan</span>
+                <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
+                <div class="card-title">เป้าหมายการศึกษา</div>
+                <div class="card-desc">
+                    มุ่งมั่นพัฒนาตนเอง และหาความรู้ในการเข้าศึกษาต่อและวางแผนในการประกอบอาชีพในอนาคต
                 </div>
             </div>
         </div>
 
-        <h2 class="section-title">🎓 ประวัติการศึกษา</h2>
-        <div class="academic-card">
-            <h3>ระดับมัธยมศึกษาตอนปลาย (ชั้นมัธยมศึกษาปีที่ 6)</h3>
-            <p><strong>สถานศึกษา:</strong> โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
-            <p><strong>แผนการเรียน:</strong> วิทยาศาสตร์-คณิตศาสตร์ (MSEP)</p>
-            <span class="badge-academic">เน้นย้ำความรู้พื้นฐานวิทยาศาสตร์และเคมี</span>
-        </div>
-
-        <!-- ปุ่มลิงก์เชื่อมต่อไปยังหน้าใหม่ (education.html) -->
-        <a href="education.html" class="next-page-btn">
-            ไปที่หน้า เป้าหมายและการศึกษาต่อ <div class="arrow">➔</div>
+        <!-- ลิงก์ไปยังหน้าถัดไป: ผลงาน -->
+        <a href="portfolio.html" class="next-page-btn">
+            ไปที่หน้า ผลงาน <div class="arrow">➔</div>
         </a>
     </div>
 
