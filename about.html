@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ผลงาน - Piyapat Portfolio</title>
+    <title>เกี่ยวกับฉัน - Piyapat Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #e0e7ff 100%);
             --primary: #0284c7;
+            --primary-light: #e0f2fe;
             --text-main: #0f172a;
             --text-sub: #475569;
         }
@@ -16,7 +17,6 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Kanit', sans-serif; }
         body { background: var(--bg-gradient); color: var(--text-main); min-height: 100vh; padding-top: 100px; padding-bottom: 60px; }
 
-        /* Navigation Bar (4 แถบ) */
         nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px);
@@ -33,56 +33,82 @@
             box-shadow: 0 20px 50px rgba(56, 189, 248, 0.12); position: relative;
         }
 
-        .page-title { text-align: center; font-size: 2.2rem; color: var(--text-main); margin-bottom: 5px; }
-        .page-subtitle { text-align: center; color: var(--text-sub); font-size: 1rem; margin-bottom: 35px; font-weight: 300; }
-
-        .section-title { font-size: 1.4rem; color: var(--text-main); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-
         .card {
-            background: white; border-radius: 24px; overflow: hidden;
-            border: 1px solid rgba(186, 230, 253, 0.8); box-shadow: 0 10px 25px rgba(56, 189, 248, 0.05);
-            transition: all 0.3s ease; display: grid; grid-template-columns: 280px 1fr; gap: 20px;
+            background: white; border-radius: 24px; padding: 35px;
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.05); border: 1px solid rgba(186, 230, 253, 0.6);
+            display: grid; grid-template-columns: 220px 1fr; gap: 35px; align-items: start;
         }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 20px 35px rgba(56, 189, 248, 0.12); }
-        .img-box { overflow: hidden; height: 100%; min-height: 200px; }
-        .card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .card:hover img { transform: scale(1.05); }
+        .card img { width: 100%; height: 260px; border-radius: 16px; object-fit: cover; }
 
-        .card-body { padding: 25px; }
-        .card-body .tag { background: #bae6fd; color: #0369a1; padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 500; }
-        .card-body h3 { font-size: 1.25rem; margin: 10px 0; color: var(--text-main); }
-        .card-body p { font-size: 0.95rem; color: var(--text-sub); font-weight: 300; line-height: 1.6; }
+        h1 { font-size: 1.8rem; margin-bottom: 15px; color: var(--text-main); }
+        h1::after { content: ''; display: block; width: 40px; height: 4px; background: var(--primary); border-radius: 2px; margin-top: 5px; }
 
-        @media (max-width: 650px) { .card { grid-template-columns: 1fr; } .page-frame { padding: 20px; } }
+        .info-item { margin-bottom: 12px; font-size: 1rem; color: var(--text-sub); line-height: 1.6; }
+        .info-item strong { color: var(--text-main); font-weight: 500; }
+
+        .skills-grid { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+        .skill-tag { background: #bae6fd; color: #0369a1; padding: 6px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; }
+
+        .section-title { font-size: 1.4rem; margin: 35px 0 20px; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
+
+        .academic-card {
+            background: white; border-radius: 20px; padding: 25px;
+            border: 1px solid rgba(186, 230, 253, 0.8); box-shadow: 0 10px 25px rgba(56, 189, 248, 0.05);
+            transition: all 0.3s ease; position: relative;
+        }
+        .academic-card:hover { transform: translateY(-3px); }
+        .academic-card h3 { font-size: 1.15rem; color: var(--text-main); margin-bottom: 8px; }
+        .academic-card p { color: var(--text-sub); font-size: 0.95rem; line-height: 1.6; }
+        .badge-academic { display: inline-block; background: #e0f2fe; color: var(--primary); padding: 4px 12px; border-radius: 12px; font-size: 0.85rem; font-weight: 500; margin-top: 10px; }
+
+        .next-page-btn {
+            display: flex; justify-content: center; align-items: center; gap: 8px;
+            margin-top: 30px; text-decoration: none; color: var(--primary); font-weight: 500;
+        }
+        .next-page-btn .arrow { width: 32px; height: 32px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
+        @media (max-width: 650px) { .card { grid-template-columns: 1fr; text-align: center; } h1::after { margin: 5px auto 0; } .page-frame { padding: 20px; } }
     </style>
 </head>
 <body>
 
-    <!-- แถบเมนูนำทาง 4 แถบ -->
     <nav>
         <a href="index.html">หน้าแรก</a>
-        <a href="about.html">เกี่ยวกับฉัน</a>
+        <a href="about.html" class="active">เกี่ยวกับฉัน</a>
         <a href="education.html">เป้าหมายศึกษาต่อ</a>
-        <a href="portfolio.html" class="active">ผลงาน</a>
+        <a href="portfolio.html">ผลงาน</a>
     </nav>
 
     <div class="page-frame">
-        <h1 class="page-title">ผลงานและการเรียนรู้</h1>
-        <p class="page-subtitle">รวบรวมผลงานการเรียนรู้ กิจกรรม และโครงการที่ได้เข้าร่วม</p>
-
-        <h2 class="section-title">📂 ผลงานและการเรียนรู้</h2>
         <div class="card">
-            <div class="img-box">
-                <img src="images/chula.jpg" alt="Chula MOOC Certificate">
-            </div>
-            <div class="card-body">
-                <span class="tag">Online Course Certificate</span>
-                <h3>การอบรม Chula MOOC</h3>
-                <p>
-                    เข้าร่วมและสำเร็จการเรียนในรายวิชา <strong>'เปิดโลกเคมี: สารประกอบอินทรีย์และพอลิเมอร์'</strong> จาก Chula MOOC ช่วยเสริมสร้างความเข้าใจที่ลึกซึ้งยิ่งขึ้นเกี่ยวกับเคมีอินทรีย์และเทคโนโลยีพอลิเมอร์ ทำให้เห็นภาพรวมการประยุกต์ใช้สารเคมีและวัสดุในชีวิตประจำวันอย่างเป็นระบบ อีกทั้งยังเป็นการฝึกฝนวินัยในการเรียนรู้ตลอดชีวิต (Lifelong Learning) เพื่อเตรียมความพร้อมสำหรับสายงานวิทยาศาสตร์
-                </p>
+            <img src="images/images.jpg" alt="ปิยพัทธ์ ลีลาทนาพร">
+            <div>
+                <h1>About Me</h1>
+                <div class="info-item"><strong>ชื่อ-นามสกุล:</strong> นายปิยพัทธ์ ลีลาทนาพร</div>
+                <div class="info-item"><strong>ความสนใจส่วนตัว:</strong> สนใจในกระบวนการผลิต กลไกและการออกฤทธิ์ของยา</div>
+                <div class="info-item" style="margin-top: 15px;">
+                    <strong>ทักษะและความสามารถ:</strong>
+                    <div class="skills-grid">
+                        <span class="skill-tag">🤝 การทำงานเป็นทีม</span>
+                        <span class="skill-tag">💡 การแก้ไขปัญหาเฉพาะหน้า</span>
+                        <span class="skill-tag">🌐 ทักษะทางภาษา</span>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <h2 class="section-title">🎓 ประวัติการศึกษา</h2>
+        <div class="academic-card">
+            <h3>ระดับมัธยมศึกษาตอนปลาย (ชั้นมัธยมศึกษาปีที่ 6)</h3>
+            <p><strong>สถานศึกษา:</strong> โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
+            <p><strong>แผนการเรียน:</strong> วิทยาศาสตร์-คณิตศาสตร์ (MSEP)</p>
+            <span class="badge-academic">เน้นย้ำความรู้พื้นฐานวิทยาศาสตร์และเคมี</span>
+        </div>
+
+        <!-- ลิงก์ไปยังหน้าถัดไป: เป้าหมายศึกษาต่อ -->
+        <a href="education.html" class="next-page-btn">
+            ไปที่หน้า เป้าหมายและการศึกษาต่อ <div class="arrow">➔</div>
+        </a>
     </div>
 
 </body>
