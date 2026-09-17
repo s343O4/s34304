@@ -39,13 +39,40 @@
         }
         .card:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 15px 30px rgba(2, 132, 199, 0.15); border-color: var(--primary); }
         
-        .img-box { overflow: hidden; }
-        .card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .img-box { overflow: hidden; position: relative; cursor: pointer; }
+        .card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
         .card:hover img { transform: scale(1.08); }
+        .img-box::after {
+            content: '🔍 คลิกเพื่อขยาย'; position: absolute; bottom: 8px; right: 8px;
+            background: rgba(15, 23, 42, 0.65); color: white; padding: 3px 8px;
+            border-radius: 8px; font-size: 0.75rem; backdrop-filter: blur(4px);
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .img-box:hover::after { opacity: 1; }
 
         .card-body { padding: 20px; }
         .cert-tag { background: #bae6fd; color: #0369a1; padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 500; display: inline-block; transition: all 0.3s ease; }
         .card:hover .cert-tag { background: var(--primary); color: white; }
+
+        /* Lightbox Modal CSS */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0;
+            width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px); justify-content: center; align-items: center;
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .modal.show { display: flex; opacity: 1; }
+        .modal-content {
+            max-width: 90%; max-height: 85vh; border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); transform: scale(0.8);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .modal.show .modal-content { transform: scale(1); }
+        .close-btn {
+            position: absolute; top: 20px; right: 30px; color: white;
+            font-size: 35px; font-weight: bold; cursor: pointer; transition: color 0.2s;
+        }
+        .close-btn:hover { color: #bae6fd; }
 
         .bottom-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 25px; padding-bottom: 25px; border-bottom: 1px solid rgba(186, 230, 253, 0.6); }
         .nav-btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--primary); font-weight: 500; transition: transform 0.25s ease; }
@@ -79,14 +106,39 @@
     <div class="page-frame">
         <h2>📂 ผลงานและการเรียนรู้</h2>
         
+        <!-- รูปที่ 1: Chula MOOC -->
         <div class="card">
-            <div class="img-box">
+            <div class="img-box" onclick="zoomImage(this)">
                 <img src="images/chula.jpg" alt="Chula MOOC Certificate">
             </div>
             <div class="card-body">
                 <span class="cert-tag">Certificate</span>
                 <h3 style="margin: 8px 0;">การอบรม Chula MOOC</h3>
                 <p style="font-size: 0.9rem; color: var(--text-sub); line-height: 1.5;">สำเร็จการเรียนรายวิชา 'เปิดโลกเคมี: สารประกอบอินทรีย์และพอลิเมอร์' เพื่อเตรียมความพร้อมสู่การเรียนเคมีระดับสูง</p>
+            </div>
+        </div>
+
+        <!-- รูปที่ 2: IMG_2951 วันวิทยาศาสตร์ -->
+        <div class="card" style="animation-delay: 0.2s;">
+            <div class="img-box" onclick="zoomImage(this)">
+                <img src="images/IMG_2951.jpeg" alt="กิจกรรมวันวิทยาศาสตร์">
+            </div>
+            <div class="card-body">
+                <span class="cert-tag">Activity</span>
+                <h3 style="margin: 8px 0;">ออกร้านกิจกรรมวันวิทยาศาสตร์</h3>
+                <p style="font-size: 0.9rem; color: var(--text-sub); line-height: 1.5;">ร่วมจัดซุ้มและออกร้านจำหน่ายสินค้าในกิจกรรมวันวิทยาศาสตร์ ฝึกทักษะการทำงานร่วมกับผู้อื่นและการบริหารจัดการ</p>
+            </div>
+        </div>
+
+        <!-- รูปที่ 3: IMG_2952 Open House Mahidol -->
+        <div class="card" style="animation-delay: 0.4s;">
+            <div class="img-box" onclick="zoomImage(this)">
+                <img src="images/IMG_2952.jpeg" alt="Mahidol Open House">
+            </div>
+            <div class="card-body">
+                <span class="cert-tag">Experience</span>
+                <h3 style="margin: 8px 0;">ร่วมฐานกิจกรรม Mahidol Open House</h3>
+                <p style="font-size: 0.9rem; color: var(--text-sub); line-height: 1.5;">เข้าร่วมกิจกรรมและฐานการเรียนรู้ในงาน Open House มหาวิทยาลัยมหิดล เพื่อเปิดรับประสบการณ์ตรงในคณะเป้าหมาย</p>
             </div>
         </div>
 
@@ -112,6 +164,36 @@
             </div>
         </div>
     </div>
+
+    <!-- Lightbox Modal Container -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="imgExpanded">
+    </div>
+
+    <script>
+        function zoomImage(element) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('imgExpanded');
+            const targetImg = element.querySelector('img');
+            
+            modalImg.src = targetImg.src;
+            modalImg.alt = targetImg.alt;
+            modal.style.display = 'flex';
+            
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+    </script>
 
 </body>
 </html>
