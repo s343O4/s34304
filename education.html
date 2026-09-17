@@ -43,6 +43,13 @@
         .card:hover .card-icon { transform: scale(1.15) rotate(5deg); }
         .card-heading { font-size: 1.2rem; font-weight: 600; }
 
+        /* Style สำหรับส่วนหัวข้อใหม่ */
+        .section-divider {
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px dashed rgba(186, 230, 253, 0.8);
+        }
+
         .bottom-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 25px; padding-bottom: 25px; border-bottom: 1px solid rgba(186, 230, 253, 0.6); }
         .nav-btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--primary); font-weight: 500; transition: transform 0.25s ease; }
         .nav-btn:hover { transform: translateX(4px); }
@@ -73,6 +80,7 @@
     </nav>
 
     <div class="page-frame">
+        <!-- หัวข้อใหญ่ที่ 1: เป้าหมายการศึกษาต่อ -->
         <h2>🎯 เป้าหมายการศึกษาต่อ</h2>
         <div class="grid-container">
             <div class="card">
@@ -83,7 +91,21 @@
             <div class="card" style="animation-delay: 0.5s;">
                 <div class="card-icon"><i class="fa-solid fa-pills"></i></div>
                 <div class="card-heading">เป้าหมาย</div>
-                <p style="color: var(--text-sub); font-size: 0.9rem; margin-top: 4px;">มุ่งศึกษาต่อเพื่อก้าวสู่การเป็นเภสัชกร มีความเชี่ยวชาญด้านเภสัชกรรมและการวิจัยพัฒนา ยา</p>
+                <p style="color: var(--text-sub); font-size: 0.9rem; margin-top: 4px;">มุ่งศึกษาต่อเพื่อก้าวสู่การเป็นเภสัชกร มีความเชี่ยวชาญด้านเภสัชกรรมและการวิจัยพัฒนายา</p>
+            </div>
+        </div>
+
+        <!-- หัวข้อใหญ่ที่ 2: เป้าหมายในสายอาชีพ -->
+        <div class="section-divider">
+            <h2>💼 เป้าหมายในสายอาชีพ</h2>
+            <div class="grid-container">
+                <div class="card" style="animation-delay: 0.2s;">
+                    <div class="card-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                    <div class="card-heading">การทำงานในอนาคต</div>
+                    <p style="color: var(--text-sub); font-size: 0.9rem; margin-top: 6px;">
+                        มุ่งมั่นเป็นเภสัชกรผู้เชี่ยวชาญด้านการบริบาลทางเภสัชกรรม คอยให้คำปรึกษาการใช้ยาอย่างถูกต้อง ปลอดภัย และร่วมวิจัยพัฒนายาเพื่อยกระดับคุณภาพชีวิตของผู้ป่วย
+                    </p>
+                </div>
             </div>
         </div>
 
